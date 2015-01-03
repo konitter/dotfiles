@@ -26,8 +26,16 @@
 	g = git
 	st = status
 	ad = add
-	cm = commit -v
-	co = checkout
+	c = commit
 	br = branch
-	pu = push
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ba = branch -a
+	co = checkout
+	cb = checkout -b
+	mno = merge --no-ff
+	msq = merge --squash
+	di = diff
+	sh = show
+	lg = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(cyan)%d%Creset %s %Cgreen(%cr) %C(black bold)<%an>%Creset' --abbrev-commit --date=relative
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	back = reset --soft HEAD^
+	pl = !git pull && git submodule update --init

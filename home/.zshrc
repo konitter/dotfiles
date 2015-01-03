@@ -11,8 +11,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Theme in ~/.oh-my-zsh/themes/
 ZSH_THEME="wedisagree-custom"
 
+# Custom folder
+ZSH_CUSTOM=$HOME/.zsh/custom
+
 # Zsh plugins in ~/.oh-my-zsh/plugins/*
-plugins=(git brew npm node bower)
+plugins=(git brew npm node bower themes)
 source $ZSH/oh-my-zsh.sh
 
 # -------------------------------------

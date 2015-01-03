@@ -1,0 +1,3 @@
+[submodule "/Users/konitter/.homesick/repos/dotfiles/home/.oh-my-zh"]
+	path = /Users/konitter/.homesick/repos/dotfiles/home/.oh-my-zh
+	url = https://github.com/robbyrussell/oh-my-zsh.git

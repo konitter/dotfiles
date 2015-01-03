@@ -1,0 +1,10 @@
+{
+  "adjoining-classes": false,
+  "box-sizing": false,
+  "compatible-vendor-prefixes": false,
+  "text-indent": false,
+  "fallback-colors": false,
+  "bulletproof-font-face": false,
+  "regex-selectors": false,
+  "font-sizes": false
+}

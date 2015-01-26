@@ -30,7 +30,8 @@
 
 [alias]
 	g = git
-	st = status -sb
+	# st = status -sb
+	st = status
 	ad = add
 	cm = commit -v
 	ca = commit --amend

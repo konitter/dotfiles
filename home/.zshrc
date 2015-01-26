@@ -71,6 +71,15 @@ alias t='trash'
 [ -f ~/.zsh/incr*.zsh ] && source ~/.zsh/incr*.zsh
 
 # -------------------------------------
+# zsh-syntax-highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting
+# -------------------------------------
+
+if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# -------------------------------------
 # peco
 # https://github.com/peco/peco
 # -------------------------------------

@@ -18,6 +18,16 @@ ZSH_CUSTOM=$HOME/.zsh/custom
 plugins=(git brew npm node bower themes)
 source $ZSH/oh-my-zsh.sh
 
+# history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt hist_ignore_all_dups
+setopt hist_save_nodups
+setopt hist_reduce_blanks
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+
 # -------------------------------------
 # path
 # -------------------------------------
@@ -34,15 +44,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # -------------------------------------
 # alias
 # -------------------------------------
-
-# git
-# alias g='git'
-# alias gs='git status'
-# alias ga='git add .'
-# alias gc='git commit -v'
-# alias go='git checkout'
-# alias gp='git push'
-# alias gl="git log --graph --pretty='format:%C(yellow)%h%C(auto)%d%Creset %s %C(black bold)%an, %ar%Creset'"
 
 # editor
 alias s='sublime'

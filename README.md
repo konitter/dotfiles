@@ -1,65 +1,64 @@
 # dotfiles
 
-## Setup dotfiles
+## 1: Xcode
 
-Install homesick.
+Install Xcode via App Store.
 
-```
-$ gem install homesick
-```
+* Xcode
 
-Clone this repo by homesick.
+Make sure to launch Xcode and agree the license.
 
-```
-$ homesick clone konitter/dotfiles
-git clone  https://github.com/konitter/dotfiles.git to /Users/konitter/.homesick/repos/dotfiles
-```
+## 2: Setup
 
-Put a symbolic link.
+Clone this repo, then run the shell script.
 
-```
-$ cd ~
-$ homesick symlink dotfiles
-```
+	$ sh setup.sh
 
-## Update dotfiles
+### Installing ruby
 
-```
-$ homesick pull dotfiles
-$ homesick symlink dotfiles
-```
+	$ rbenv install -l
+	$ rbenv install 2.2.0
+	$ rbenv global 2.2.0
+	$ ruby -v
+
+### Update dotfiles
+
+	$ homesick pull dotfiles
+	$ homesick symlink dotfiles
 
 If get an error of the following:
 
-```
-Cannot pull with rebase: You have unstaged changes.
-Please commit or stash them.
-```
+	Cannot pull with rebase: You have unstaged changes.
+	Please commit or stash them.
 
 Deal with something like this.
 
-```
-$ cd ~/.homesick/repos/dotfiles
-$ git add .
-$ git stash save
-$ homesick pull dotfiles
-$ homesick symlink dotfiles
-$ git stash pop
-```
+	$ cd ~/.homesick/repos/dotfiles
+	$ git add .
+	$ git stash save
+	$ homesick pull dotfiles
+	$ homesick symlink dotfiles
+	$ git stash pop
 
-## Homebrew packages
+## 3: App Store
 
-Install [Homebrew](http://brew.sh).
+Install apps via App Store.
 
-```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+* Caffeine
+* Dash
+* formatmatch
+* FreeSpace Tab
+* HiddenMe
+* Keynote
+* LINE
+* MPlayerX
+* Sketch
 
-Run sh.
+## 4: Initialize
 
-```
-$ ./Brewfile.sh
-```
+	$ npm adduser
+
+## ...etc.
 
 Reference websites.
 

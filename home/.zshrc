@@ -28,6 +28,12 @@ setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 
+# insert-last-word
+autoload -Uz smart-insert-last-word
+zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
+zle -N insert-last-word smart-insert-last-word
+bindkey '^]' insert-last-word
+
 # -------------------------------------
 # path
 # -------------------------------------

@@ -65,6 +65,13 @@ alias see='hub browse'
 alias t='trash'
 
 # -------------------------------------
+# zsh-bd
+# https://github.com/Tarrasch/zsh-bd
+# -------------------------------------
+
+[ -f ~/.zsh/zsh-bd/bd.zsh ] && source ~/.zsh/zsh-bd/bd.zsh
+
+# -------------------------------------
 # incr.zsh
 # http://mimosa-pudica.net/zsh-incremental.html
 # -------------------------------------

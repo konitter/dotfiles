@@ -7,3 +7,6 @@
 [submodule "home/.zsh/zsh-bd"]
 	path = home/.zsh/zsh-bd
 	url = https://github.com/Tarrasch/zsh-bd.git
+[submodule "home/.zsh/anyframe"]
+	path = home/.zsh/anyframe
+	url = https://github.com/mollifier/anyframe.git

@@ -78,7 +78,6 @@ brew cask install keyboardcleantool
 brew cask install libreoffice
 brew cask install macdown
 brew cask install picasa
-brew cask install qlmarkdown
 brew cask install slack
 brew cask install skype
 brew cask install sophos-anti-virus-home-edition
@@ -88,6 +87,10 @@ brew cask install the-unarchiver
 brew cask install tinkertool
 brew cask install vlc
 brew cask install xtrafinder
+
+# Quick Look plugins
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder
 
 # fonts via caskroom-fonts
 #brew cask install font-fontawesome

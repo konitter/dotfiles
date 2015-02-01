@@ -32,6 +32,8 @@ brew install tree
 brew install go
 brew install ack
 brew install peco
+brew tap motemen/ghq
+brew install ghq
 
 # git
 ## oh-my-zsh https://github.com/robbyrussell/oh-my-zsh/issues/1717#issuecomment-22540099

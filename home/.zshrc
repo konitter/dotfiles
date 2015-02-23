@@ -34,6 +34,8 @@ zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 bindkey '^]' insert-last-word
 
+REPORTTIME=1
+
 # -------------------------------------
 # path
 # -------------------------------------
@@ -90,8 +92,25 @@ alias t='trash'
 # -------------------------------------
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# -------------------------------------
+# peco
+# https://github.com/peco/peco
+# -------------------------------------
+
+# go
+# https://github.com/astaxie/build-web-application-with-golang/tree/master/ja
+if [ -x "`which go`" ]; then
+	export GOPATH=$HOME/.go
+	export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
+# peco alias
+# http://webtech-walker.com/archive/2014/06/peco-ghq-gh-open.html
+alias po='s $(git ls-files | peco)'
+alias pg='gh-open $(ghq list -p | peco)'
 
 # -------------------------------------
 # anyframe
@@ -105,93 +124,17 @@ anyframe-init
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-bindkey '^xb' anyframe-widget-cdr
-bindkey '^x^b' anyframe-widget-checkout-git-branch
-bindkey '^xr' anyframe-widget-execute-history
-bindkey '^x^r' anyframe-widget-execute-history
-bindkey '^xi' anyframe-widget-put-history
-bindkey '^x^i' anyframe-widget-put-history
-bindkey '^xg' anyframe-widget-cd-ghq-repository
-bindkey '^x^g' anyframe-widget-cd-ghq-repository
-bindkey '^xk' anyframe-widget-kill
-bindkey '^x^k' anyframe-widget-kill
-bindkey '^xe' anyframe-widget-insert-git-branch
-bindkey '^x^e' anyframe-widget-insert-git-branch
-
-# -------------------------------------
-# peco
-# https://github.com/peco/peco
-# -------------------------------------
-
-# go
-# https://github.com/astaxie/build-web-application-with-golang/tree/master/ja
-if [ -x "`which go`" ]; then
-  export GOPATH=$HOME/.go
-  export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-fi
-
-# peco alias
-# http://webtech-walker.com/archive/2014/06/peco-ghq-gh-open.html
-alias po='s $(git ls-files | peco)'
-alias pc='cd $(ghq list -p | peco)'
-alias pg='gh-open $(ghq list -p | peco)'
-
-# peco branch
-# http://k0kubun.hatenablog.com/entry/2014/07/06/033336
-alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
-
-# peco history
-# http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
-# http://qiita.com/uchiko/items/f6b1528d7362c9310da0
-function peco-select-history() {
-  local tac
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-  BUFFER=$(\history -n 1 | \
-    eval $tac | \
-    peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  # zle clear-screen
-}
-zle -N peco-select-history
-bindkey '^h' peco-select-history
-
-# peco cd
-# http://www.pupha.net/archives/2267/
-if [ -n "`which peco 2> /dev/null`" ]; then
-
-  # unshift the 1st argument string into output
-  function peco-unshift() {
-    echo "$1"
-    while read x; do
-      echo $x
-    done
-  }
-
-  # pd (peco-change-directory)
-  # Usage:
-  #   - Select ${CD_LINE} to change directory
-  #   - Select ${CANCEL_LINE} to cancel
-  function pd() {
-    local DIR_TMP=""
-    local DIR_PATH="$1"
-    local CD_LINE="Change-Directory"
-    local CANCEL_LINE="Cancel"
-    while true
-    do
-      DIR_TMP=$(\ls -1aF ${DIR_PATH} | sed -e "s/@$/\//" | grep / | peco-unshift ${CANCEL_LINE} | peco-unshift ${CD_LINE} | peco)
-      if [ "${DIR_TMP}" = "${CD_LINE}" ]; then
-        cd $DIR_PATH
-        return
-      elif [ "${DIR_TMP}" = "${CANCEL_LINE}" ]; then
-        return
-      else
-        DIR_PATH="${DIR_PATH}${DIR_TMP}"
-      fi
-    done
-  }
-
-fi
+bindkey '^ar' anyframe-widget-cdr
+bindkey '^a^r' anyframe-widget-cdr
+bindkey '^ab' anyframe-widget-checkout-git-branch
+bindkey '^a^b' anyframe-widget-checkout-git-branch
+bindkey '^ah' anyframe-widget-execute-history
+bindkey '^a^h' anyframe-widget-execute-history
+bindkey '^ai' anyframe-widget-put-history
+bindkey '^a^i' anyframe-widget-put-history
+bindkey '^ag' anyframe-widget-cd-ghq-repository
+bindkey '^a^g' anyframe-widget-cd-ghq-repository
+bindkey '^ak' anyframe-widget-kill
+bindkey '^a^k' anyframe-widget-kill
+bindkey '^ae' anyframe-widget-insert-git-branch
+bindkey '^a^e' anyframe-widget-insert-git-branch

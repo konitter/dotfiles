@@ -47,3 +47,7 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	back = reset --soft HEAD^
 	pl = !git pull && git submodule update --init
+	pr-setup = config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
+	# -> git fetch origin && git checkout pr/**
+[push]
+	default = matching
